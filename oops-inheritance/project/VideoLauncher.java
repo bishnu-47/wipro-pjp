@@ -1,4 +1,4 @@
-import java.io.*;
+import java.util.*;
 
 public class VideoLauncher {
 
@@ -15,42 +15,44 @@ public class VideoLauncher {
 
 	public static void main(String[] args) {
 		VideoStore vidStore = new VideoStore();
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int ch = 0;
+		Scanner sc = new Scanner(System.in);
+		int ch;
 
-		while (true) {
+		do {
 			printMenu();
-			System.out.println("Enter your choice (1..6): ");
+			System.out.print("Enter your choice (1..6): ");
 
-			ch = Integer.parseInt(br.readLine());
+			ch = sc.nextInt();
+			sc.nextLine();
 
 			switch (ch) {
 			case 1: {
 				System.out.print("Enter the name of the video you want to add: ");
-				String name = br.readLine();
+				String name = sc.nextLine();
 
 				vidStore.addVideo(name);
 				break;
 			}
 			case 2: {
 				System.out.print("Enter the name of the video you want to check out: ");
-				String name = br.readLine();
+				String name = sc.nextLine();
 
 				vidStore.doCheckout(name);
 				break;
 			}
 			case 3: {
 				System.out.print("Enter the name of the video you want to Return: ");
-				String name = br.readLine();
+				String name = sc.nextLine();
 
 				vidStore.doReturn(name);
 				break;
 			}
 			case 4: {
 				System.out.print("Enter the name of the video you want to Rate: ");
-				String name = br.readLine();
-				System.out.println("Enter the rating for this video: ");
-				int rating = Integer.parseInt(br.readLine());
+				String name = sc.nextLine();
+				System.out.print("Enter the rating for this video: ");
+				int rating = sc.nextInt();
+				sc.nextLine();
 
 				vidStore.receiveRating(name, rating);
 				break;
@@ -64,6 +66,6 @@ public class VideoLauncher {
 			default:
 				System.out.println("Please Enter correct choise!");
 			}
-		}
+		} while (ch != 6);
 	}
 }

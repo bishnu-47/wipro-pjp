@@ -46,10 +46,12 @@ public class VideoStore {
 	}
 
 	public void listInventory() {
-		System.out.printf("-15%s -15%s -15%s %n", "Video Name", "Checkout Status", "Rating");
+		System.out.printf("%-15s %-18s %-15s %n", "Video Name", "Checkout Status", "Rating");
 
 		for (Video v : store) {
-			System.out.printf("-15%s -15%b -15%d %n", v.getName(), v.getCheckout(), v.getRating());
+			if (v == null) break;
+
+			System.out.printf("%-15s %-18b %-15d %n%n", v.getName(), v.getCheckout(), v.getRating());
 		}
 	}
 
