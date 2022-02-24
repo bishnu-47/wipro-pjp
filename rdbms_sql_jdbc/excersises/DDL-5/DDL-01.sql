@@ -1,0 +1,7 @@
+CREATE TABLE DEPT(
+    Dept_ID NUMBER(7),
+    Dept_Name VARCHAR2(20),
+    CONSTRAINT pk_dept_id PRIMARY KEY(Dept_ID)
+);
+
+DESCRIBE dept;
